@@ -10,7 +10,7 @@ namespace EB.Cameras.HikVision
     /// <summary>
     /// 
     /// </summary>
-    public class MVS : IDisposable
+    public abstract class MVS : IDisposable
     {
         #region ********************** Instance Variables **********************
 
@@ -75,7 +75,7 @@ namespace EB.Cameras.HikVision
 
         bool disposedValue;
         /// <summary>
-        /// 
+        /// Dispose method; call base on override.
         /// </summary>
         /// <param name="disposing"></param>
         protected virtual void Dispose( bool disposing )
@@ -85,6 +85,7 @@ namespace EB.Cameras.HikVision
                 if ( disposing )
                 {
                     // TODO: dispose managed state (managed objects)
+                    Close();
                 }
 
                 // TODO: free unmanaged resources (unmanaged objects) and override finalizer
@@ -108,15 +109,6 @@ namespace EB.Cameras.HikVision
             // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
             Dispose( disposing: true );
             GC.SuppressFinalize( this );
-        }
-
-        /// <summary>
-        /// Clean up on dispose;
-        /// on override call as last method.
-        /// </summary>
-        protected virtual void CleanupOnDispose()
-        {
-            Close();
         }
 
         #endregion *************************************************************
