@@ -60,16 +60,43 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\AdvancedSettings\MVSAdvSetExt.cs" />
+    <Compile Include="Extensions\CameraInternalAPIs\MVSCamInternalAPIExt.cs" />
+    <Compile Include="Extensions\CameraLink\MVSCamLinkExt.cs" />
+    <Compile Include="Extensions\GenTL_APIs\MVSGenTLAPIExt.cs" />
+    <Compile Include="Extensions\ImageProcessing\MVSImgProcExt.cs" />
     <Compile Include="MVS.cs" />
-    <Compile Include="MVSCamDevice.cs" />
-    <Compile Include="MVSEnum.cs" />
-    <Compile Include="MVSImgAcqExt.cs" />
-    <Compile Include="MVSParamSetExt.cs" />
-    <Compile Include="MVSGeneralAPIExt.cs" />
-    <Compile Include="MVSGigEAPIExt.cs" />
+    <Compile Include="MVSCam.cs" />
+    <Compile Include="Classes\MVSCamDevice.cs" />
+    <Compile Include="Classes\MVSEnum.cs" />
+    <Compile Include="Extensions\ImageAcquisition\MVSImgAcqExt.cs" />
+    <Compile Include="Extensions\ParameterSettings\MVSParamSetExt.cs" />
+    <Compile Include="Extensions\GeneralAPIs\MVSGenAPIExt.cs" />
+    <Compile Include="Extensions\GigE_APIs\MVSGigEAPIExt.cs" />
     <Compile Include="MVSHelper.cs" />
+    <Compile Include="Params\BoolParam.cs" />
+    <Compile Include="Params\CommandParam.cs" />
+    <Compile Include="Params\Controls\ImageFormatCtrls.cs" />
+    <Compile Include="Params\Controls\DeviceCtrls.cs" />
+    <Compile Include="Params\Controls\IDeviceCtrls.cs" />
+    <Compile Include="Params\Controls\IImageFormatCtrls.cs" />
+    <Compile Include="Params\FloatParam.cs" />
+    <Compile Include="Params\IBoolParam.cs" />
+    <Compile Include="Params\IBoolParamRO.cs" />
+    <Compile Include="Params\ICommandParam.cs" />
+    <Compile Include="Params\IFloatParam.cs" />
+    <Compile Include="Params\IFloatParamRO.cs" />
+    <Compile Include="Params\IIntParam.cs" />
+    <Compile Include="Params\IIntParamRO.cs" />
+    <Compile Include="Params\IntParam.cs" />
+    <Compile Include="Params\IStringParam.cs" />
+    <Compile Include="Params\IStringParamRO.cs" />
+    <Compile Include="Params\MVSParam.cs" />
+    <Compile Include="Params\StringParam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\MVSConsts.cs" />
+    <Compile Include="Settings\MVSEnums.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

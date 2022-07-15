@@ -1,4 +1,4 @@
-﻿namespace EB.Cameras.HikVision
+﻿namespace EB.Cameras.HikVision.Classes
 {
     /// <summary>
     /// MVS Enumeration Value.

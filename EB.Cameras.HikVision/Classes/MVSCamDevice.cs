@@ -5,7 +5,7 @@ using BE.Cameras;
 using MvCamCtrl.NET;
 using static MvCamCtrl.NET.MyCamera;
 
-namespace EB.Cameras.HikVision
+namespace EB.Cameras.HikVision.Classes
 {
     /// <summary>
     /// 
@@ -29,7 +29,7 @@ namespace EB.Cameras.HikVision
         /// <returns></returns>
         static string FormatDeviceName( string devType, string devName, string serialNo )
         {
-            return string.Format( "[{0}] {1} ({2})", devType, devName, serialNo );
+            return string.Format( "[{0}] {1}({2})", devType, devName, serialNo );
         }
 
         #endregion *************************************************************

@@ -3,6 +3,8 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
+using EB.Cameras.HikVision.Classes;
+
 using BE.Cameras;
 using BE.Cameras.Exceptions;
 using EB.Cameras.HikVision.Settings;
@@ -411,7 +413,7 @@ namespace EB.Cameras.HikVision
         /// <returns></returns>
         public static string GetCamName( int index )
         {
-            return string.Format( "カメラ{0}", ( index < 0 )
+            return string.Format( "Cam{0}", ( index < 0 )
                                                     ? ""
                                                     : ( index + 1 ).ToString() );
         }

@@ -1,5 +1,7 @@
 ﻿using System;
 
+using EB.Cameras.HikVision.Extensions.GeneralAPIs;
+
 using BE.Cameras;
 
 using MvCamCtrl.NET;
@@ -8,7 +10,7 @@ using static MvCamCtrl.NET.MyCamera;
 namespace EB.Cameras.HikVision
 {
     /// <summary>
-    /// 
+    /// Base class that implements MVS SDK methods. 
     /// </summary>
     public abstract class MVS : IDisposable
     {
@@ -36,6 +38,11 @@ namespace EB.Cameras.HikVision
         public bool IsGrabbing { get { return IsSet && m_isGrabbing; } }
 
         /// <summary></summary>
+        public bool IsConnected { get { return IsOpen && this.IsDeviceConnected(); } }
+
+        /// <summary>Get or set Camera name;
+        /// if set to null or empty the camera name will be Cam+( Index + 1),
+        /// if Index -1 then just Cam</summary>
         public string CamName
         {
             get { return string.IsNullOrWhiteSpace( m_camName )
@@ -51,7 +58,7 @@ namespace EB.Cameras.HikVision
         public string LastErrorMessage { get; protected internal set; }
 
         /// <summary></summary>
-        protected bool IsSet { get { return ( Cam != null ); } }
+        protected internal bool IsSet { get { return ( Cam != null ); } }
 
         /// <summary>HikVision MVS camera.</summary>
         protected internal MyCamera Cam { get; private set; }
@@ -209,6 +216,15 @@ namespace EB.Cameras.HikVision
             }
 
             OnCamEvent?.Invoke( this, new CamEventArgs( camEvent, message ) );      
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        protected void Set( int index )
+        {
+            m_index = index;
         }
 
         #region ========================= MVS Methods ==========================
@@ -410,6 +426,15 @@ namespace EB.Cameras.HikVision
                 
                 AfterDestroyDevice();
             }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return string.Format( "[{0}]{1}: (S:{2} O:{3}, G:{4})", CamName, CamDevice, IsSet, IsOpen, IsGrabbing );
         }
 
         #endregion *************************************************************

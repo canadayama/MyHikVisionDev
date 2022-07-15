@@ -6,12 +6,12 @@ using BE.Cameras.Exceptions;
 
 using static MvCamCtrl.NET.MyCamera;
 
-namespace EB.Cameras.HikVision
+namespace EB.Cameras.HikVision.Extensions.GeneralAPIs
 {
     /// <summary>
     /// 
     /// </summary>
-    public static class MVSGeneralAPIExt
+    public static class MVSGenAPIExt
     {
         #region ========================= General APIs =========================
 
@@ -20,7 +20,7 @@ namespace EB.Cameras.HikVision
         /// </summary>
         /// <param name="mvs">MVS object.</param>
         /// <param name="pstFileAccess"></param>
-        internal static bool FileAccessRead( this MVS mvs,
+        public static bool FileAccessRead( this MVS mvs,
                                              ref MV_CC_FILE_ACCESS pstFileAccess )
         {
             if ( mvs.IsOpen )
@@ -47,7 +47,7 @@ namespace EB.Cameras.HikVision
         /// <param name="mvs">MVS object.</param>
         /// <param name="pstFileAccess"></param>
         /// <returns>true on success; false on fail w/ LastErrorMessage set.</returns>
-        internal static bool FileAccessWrite( this MVS mvs,
+        public static bool FileAccessWrite( this MVS mvs,
                                               ref MV_CC_FILE_ACCESS pstFileAccess )
         {
             if ( mvs.IsOpen )
@@ -74,7 +74,7 @@ namespace EB.Cameras.HikVision
         /// <param name="mvs">MVS object.</param>
         /// <param name="pFilename"></param>
         /// <returns>true on success; false on fail w/ LastErrorMessage set.</returns>
-        internal static bool FeatureLoad( this MVS mvs, string pFilename )
+        public static bool FeatureLoad( this MVS mvs, string pFilename )
         {
             if ( mvs.IsOpen )
             {
@@ -100,7 +100,7 @@ namespace EB.Cameras.HikVision
         /// <param name="mvs">MVS object.</param>
         /// <param name="pFilename"></param>
         /// <returns>true on success; false on fail w/ LastErrorMessage set.</returns>
-        internal static bool FeatureSave( this MVS mvs, string pFilename )
+        public static bool FeatureSave( this MVS mvs, string pFilename )
         {
             if ( mvs.IsOpen )
             {
@@ -127,7 +127,7 @@ namespace EB.Cameras.HikVision
         /// <param name="pstInfo">Information structure,
         /// see MV_ALL_MATCH_INFO for details.</param>
         /// <returns>true on success; false on fail w/ LastErrorMessage set.</returns>
-        internal static bool GetAllMatchInfo( this MVS mvs, ref MV_ALL_MATCH_INFO pstInfo )
+        public static bool GetAllMatchInfo( this MVS mvs, ref MV_ALL_MATCH_INFO pstInfo )
         {
             if ( mvs.IsOpen )
             {
@@ -153,7 +153,7 @@ namespace EB.Cameras.HikVision
         /// <param name="pstFileAccessProgress">
         /// Progress, see details in MV_CC_FILE_ACCESS_PROGRESS .</param>
         /// <returns>true on success; false on fail w/ LastErrorMessage set.</returns>
-        internal static bool GetFileAccessProgress( this MVS mvs,
+        public static bool GetFileAccessProgress( this MVS mvs,
                                                     ref MV_CC_FILE_ACCESS_PROGRESS pstFileAccessProgress )
         {
             if ( mvs.IsOpen )
@@ -179,7 +179,7 @@ namespace EB.Cameras.HikVision
         /// </summary>
         /// <param name="mvs">MVS object.</param>
         /// <returns>true on success; false on fail w/ LastErrorMessage set.</returns>
-        internal static bool MV_CC_InvalidateNodes( this MVS mvs )
+        public static bool MV_CC_InvalidateNodes( this MVS mvs )
         {
             if ( mvs.IsOpen )
             {
@@ -205,7 +205,7 @@ namespace EB.Cameras.HikVision
         /// <param name="mvs">MVS object.</param>
         /// <returns>true if connected; false if disconnected.</returns>
         /// <exception cref="CamNotOpenException"></exception>
-        internal static bool IsConnected( this MVS mvs )
+        public static bool IsDeviceConnected( this MVS mvs )
         {
             if ( mvs.IsOpen )
             {
@@ -223,7 +223,7 @@ namespace EB.Cameras.HikVision
         /// <param name="cbEvent">Callback function for receiving events.</param>
         /// <param name="pUser">User data.</param>
         /// <returns>true if connected; false if disconnected.</returns>
-        internal static bool RegisterAllEventCallBack( this MVS mvs,
+        public static bool RegisterAllEventCallBack( this MVS mvs,
                                                        cbEventdelegateEx cbEvent,
                                                        IntPtr? pUser = null )
         {
@@ -253,7 +253,7 @@ namespace EB.Cameras.HikVision
         /// <param name="cbEvent">Callback function for receiving the event.</param>
         /// <param name="pUser">User data.</param>
         /// <returns>true if connected; false if disconnected.</returns>
-        internal static bool RegisterEventCallBackEx( this MVS mvs,
+        public static bool RegisterEventCallBackEx( this MVS mvs,
                                                       string pEventName,
                                                       cbEventdelegateEx cbEvent,
                                                       IntPtr? pUser )
@@ -283,7 +283,7 @@ namespace EB.Cameras.HikVision
         /// <param name="cbException">Callback function for receiving exception message.</param>
         /// <param name="pUser">User data.</param>
         /// <returns>true if connected; false if disconnected.</returns>
-        internal static bool RegisterExceptionCallBack( this MVS mvs,
+        public static bool RegisterExceptionCallBack( this MVS mvs,
                                                         cbExceptiondelegate cbException,
                                                         IntPtr? pUser = null )
         {
@@ -313,7 +313,7 @@ namespace EB.Cameras.HikVision
         /// its value should be larger than or equal to 1,
         /// and the default value is "1".</param>
         /// <returns>true on success; false on fail w/ LastErrorMessage set.</returns>
-        internal static bool SetImageNodeNum( this MVS mvs, uint nNum )
+        public static bool SetImageNodeNum( this MVS mvs, uint nNum )
         {
             if ( mvs.IsOpen )
             {
@@ -340,7 +340,7 @@ namespace EB.Cameras.HikVision
         /// <param name="enGrabStrategy">Streaming strategy,
         /// see the enumeration MV_GRAB_STRATEGY for details.</param>
         /// <returns>true on success; false on fail w/ LastErrorMessage set.</returns>
-        internal static bool SetGrabStrategy( this MVS mvs,
+        public static bool SetGrabStrategy( this MVS mvs,
                                               MV_GRAB_STRATEGY enGrabStrategy )
         {
             if ( mvs.IsOpen )
@@ -367,7 +367,7 @@ namespace EB.Cameras.HikVision
         /// <param name="mvs">MVS object.</param>
         /// <param name="nOutputQueueSize">Output queue size, range: [1,10].</param>
         /// <returns>true on success; false on fail w/ LastErrorMessage set.</returns>
-        internal static bool SetOutputQueueSize( this MVS mvs, uint nOutputQueueSize )
+        public static bool SetOutputQueueSize( this MVS mvs, uint nOutputQueueSize )
         {
             if ( mvs.IsOpen )
             {
