@@ -24,7 +24,7 @@
         string Name { get; }
 
         /// <summary></summary>
-        string Value { get; set; }
+        string SValue { get; set; }
 
         /// <summary></summary>
         long MaxLength { get; }

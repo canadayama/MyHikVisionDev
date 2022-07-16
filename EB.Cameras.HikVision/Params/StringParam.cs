@@ -9,8 +9,8 @@ namespace EB.Cameras.HikVision.Params
     {
         #region ************************** Properties **************************
 
-        /// <summary></summary>
-        public string Value
+        /// <summary>String value property.</summary>
+        public string SValue
         {
             get => Mvs.GetString( StrKey );
 
@@ -44,7 +44,7 @@ namespace EB.Cameras.HikVision.Params
         {
             return string.Format( "{0} {1} {2}",
                                     base.ToString(),
-                                        Value,
+                                        SValue,
                                             FormatAccessModeString() );
         }
 

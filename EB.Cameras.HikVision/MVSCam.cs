@@ -17,6 +17,42 @@ namespace EB.Cameras.HikVision
         /// <summary></summary>
         public IImageFormatCtrls ImageFormat { get; }
 
+        /// <summary></summary>
+        public IAcquisitionCtrls Acquisition { get; }
+
+        /// <summary></summary>
+        public IAnalogCtrls Analog { get; }
+
+        ///// <summary></summary>
+        //public ColorTranformation { get; }
+
+        /// <summary></summary>
+        public ILUTCtrls LUT { get; }
+
+        /// <summary></summary>
+        public IDigitalIOCtrls DigitalIO { get; }
+
+        ///// <summary></summary>
+        //public IActionControl Action { get; }
+
+        ///// <summary></summary>
+        //public ICounterAndTimerCtrls CounterAndTimer { get; }
+        
+        ///// <summary></summary>
+        //public IFileAccessCtrls FileAccess { get; }
+        
+        ///// <summary></summary>
+        //public IEventCtrls Event { get; }
+        
+        ///// <summary></summary>
+        //public IChunkDataCtrls ChunkData { get; }
+        
+        /// <summary></summary>
+        public ITransportLayerCtrls TransportLayer { get; }
+
+        /// <summary></summary>
+        public IUserSetCtrls UserSet { get; }
+
         #endregion *************************************************************
 
         #region ************************* Constructor **************************
@@ -29,6 +65,17 @@ namespace EB.Cameras.HikVision
         {
             Device = new DeviceCtrls( this );
             ImageFormat = new ImageFormatCtrls( this );
+            Acquisition = new AcquisitionCtrls( this );
+            Analog = new AnalogCtrls( this );
+            //ColorTranformation = ;
+            LUT = new LUTCtrls( this );
+            DigitalIO = new DigitalIOCtrls( this );
+            //Action = ;
+            //CounterAndTimer = ;
+            //FileAccess = ;
+            //EventChunkData = ;
+            TransportLayer = new TransportLayerCtrls( this );
+            UserSet = new UserSetCtrls( this );
         }
 
         #endregion *************************************************************

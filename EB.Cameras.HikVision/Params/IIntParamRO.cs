@@ -24,7 +24,7 @@
         string Name { get; }
 
         /// <summary></summary>
-        long Value { get; }
+        long IValue { get; }
 
         /// <summary></summary>
         long Increment { get; }

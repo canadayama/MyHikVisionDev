@@ -51,6 +51,9 @@ namespace EB.Cameras.HikVision.Params
         protected string StrKey { get; }
 
         /// <summary></summary>
+        protected string Units { get; }
+
+        /// <summary></summary>
         protected MV_XML_AccessMode XmlAccessMode { get { return m_xmlAccessMode; } }
 
         #endregion =============================================================
@@ -64,10 +67,12 @@ namespace EB.Cameras.HikVision.Params
         /// </summary>
         /// <param name="mvs"></param>
         /// <param name="strKey"></param>
-        public MVSParam( MVS mvs, string strKey )
+        /// <param name="units"></param>
+        public MVSParam( MVS mvs, string strKey, string units = null )
         {
             this.Mvs = mvs;
             this.StrKey = strKey;
+            this.Units = string.IsNullOrWhiteSpace( units ) ? "" : units;
         }
 
         #endregion *************************************************************

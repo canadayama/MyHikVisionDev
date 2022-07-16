@@ -11,7 +11,7 @@ namespace EB.Cameras.HikVision.Params
         #region ************************* Properties ************************** 
 
         /// <summary></summary>
-        public long Value
+        public long IValue
         {
             get => Mvs.GetInt( StrKey );
 
@@ -36,7 +36,9 @@ namespace EB.Cameras.HikVision.Params
         /// </summary>
         /// <param name="mvs"></param>
         /// <param name="strKey"></param>
-        public IntParam( MVS mvs, string strKey ) : base( mvs, strKey )
+        /// <param name="units"></param>
+        public IntParam( MVS mvs, string strKey, string units = null )
+                                                    : base( mvs, strKey, units )
         { }
 
         #endregion *************************************************************
@@ -49,10 +51,16 @@ namespace EB.Cameras.HikVision.Params
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format( "{0} {1} {2}",
-                                    base.ToString(),
-                                        Value,
-                                            FormatAccessModeString() );
+            if ( IsAvailable )
+            {
+                return string.Format( "{0} {1}{2} {3}",
+                                        base.ToString(),
+                                            IValue,
+                                                Units,
+                                                    FormatAccessModeString() );
+            }
+
+            return string.Format( "{0} is not available!", StrKey );
         }
 
         #endregion *************************************************************

@@ -88,7 +88,7 @@ namespace EB.Cameras.HikVision.Extensions.ParameterSettings
                 return bValue;
             }
             
-            mvs.Notify( CamEvnt.GetErr, mvs.LastErrorMessage );
+            mvs.Notify( CamEvnt.GetErr, string.Format( "{0} {1}", strKey, mvs.LastErrorMessage ) );
             return false;
         }
 
@@ -106,7 +106,7 @@ namespace EB.Cameras.HikVision.Extensions.ParameterSettings
                 return;
             }
 
-            mvs.Notify( CamEvnt.SetErr, mvs.LastErrorMessage );
+            mvs.Notify( CamEvnt.SetErr, string.Format( "{0} {1}", strKey, mvs.LastErrorMessage ) );
         }
 
         #endregion -------------------------------------------------------------
@@ -362,7 +362,7 @@ namespace EB.Cameras.HikVision.Extensions.ParameterSettings
                 return pstValue.fCurValue;
             }
 
-            mvs.Notify( CamEvnt.GetErr, mvs.LastErrorMessage );
+            mvs.Notify( CamEvnt.GetErr, string.Format( "{0} {1}", strKey, mvs.LastErrorMessage ) );
             return -1;
         }
 
@@ -380,7 +380,7 @@ namespace EB.Cameras.HikVision.Extensions.ParameterSettings
                 return;
             }
 
-            mvs.Notify( CamEvnt.SetErr, mvs.LastErrorMessage );
+            mvs.Notify( CamEvnt.SetErr, string.Format( "{0} {1}", strKey, mvs.LastErrorMessage ) );
         }
 
         /// <summary>
@@ -412,7 +412,7 @@ namespace EB.Cameras.HikVision.Extensions.ParameterSettings
                 }
             }
 
-            mvs.Notify( CamEvnt.GetErr, mvs.LastErrorMessage );
+            mvs.Notify( CamEvnt.GetErr, string.Format( "{0}({1}) {2}", strKey, pd, mvs.LastErrorMessage ) );
             return -1;
         }
 
@@ -488,7 +488,7 @@ namespace EB.Cameras.HikVision.Extensions.ParameterSettings
                 return pstValue.nCurValue;
             }
 
-            mvs.Notify( CamEvnt.GetErr, mvs.LastErrorMessage );
+            mvs.Notify( CamEvnt.GetErr, string.Format( "{0} {1}", strKey, mvs.LastErrorMessage ) );
             return -1;
         }
 
@@ -506,7 +506,7 @@ namespace EB.Cameras.HikVision.Extensions.ParameterSettings
                 return;
             }
 
-            mvs.Notify( CamEvnt.SetErr, mvs.LastErrorMessage );
+            mvs.Notify( CamEvnt.SetErr, string.Format( "{0} {1}", strKey, mvs.LastErrorMessage ) );
         }
 
         /// <summary>
@@ -541,7 +541,7 @@ namespace EB.Cameras.HikVision.Extensions.ParameterSettings
                 }
             }
 
-            mvs.Notify( CamEvnt.GetErr, mvs.LastErrorMessage );
+            mvs.Notify( CamEvnt.GetErr, string.Format( "{0}({1}) {2}", strKey, pd, mvs.LastErrorMessage ) );
             return -1;
         }
 

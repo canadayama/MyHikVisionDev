@@ -9,8 +9,8 @@ namespace EB.Cameras.HikVision.Params
     {
         #region ************************** Properties **************************
 
-        /// <summary></summary>
-        public bool Value
+        /// <summary>Boolean value property.</summary>
+        public bool BValue
         {
             get => Mvs.GetBool( StrKey );
 
@@ -39,10 +39,15 @@ namespace EB.Cameras.HikVision.Params
         /// <returns></returns>
         public override string ToString()
         {
-            return string.Format( "{0} {1} {2}",
-                                    base.ToString(),
-                                        Value,
-                                            FormatAccessModeString() );
+            if ( IsAvailable )
+            {
+                return string.Format( "{0} {1} {2}",
+                                        base.ToString(),
+                                            BValue,
+                                                FormatAccessModeString() );
+            }
+
+            return string.Format( "{0} is not available!", StrKey );
         }
 
         #endregion *************************************************************

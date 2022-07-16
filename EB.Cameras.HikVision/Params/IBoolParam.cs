@@ -24,7 +24,7 @@
         string Name { get; }
 
         /// <summary></summary>
-        bool Value { get; set; }
+        bool BValue { get; set; }
 
         #endregion *************************************************************
     }
